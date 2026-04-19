@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Monetra</string>
+
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="connection">Connection</string>
+    <string name="sign_up">Sign up</string>
+
+    <string name="list_depense">List Depense</string>
+    <string name="list_revenue">List Revenue</string>
+    <string name="details_depense">Details Depense</string>
+    <string name="details_revenue">Details  Revenue</string>
+    <string name="update_depense">Update Depense</string>
+    <string name="update_revenue">Update Revenue</string>
+    <string name="delete_depense">Delete Depense</string>
+</resources>
