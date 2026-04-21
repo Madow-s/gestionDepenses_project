@@ -11,7 +11,6 @@ public class Depense {
 
     private int categorie_id;
     private Integer rubrique_id; // nullable
-
     private double montant;
     private long date;
     private String description;
