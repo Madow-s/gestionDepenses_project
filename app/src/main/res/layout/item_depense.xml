@@ -7,13 +7,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
 
-    <ImageView
-        android:id="@+id/imgdepense"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_centerVertical="true"/>
 
 
     <TextView
