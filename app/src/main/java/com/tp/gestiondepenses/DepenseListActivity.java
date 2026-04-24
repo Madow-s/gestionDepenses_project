@@ -3,6 +3,7 @@ package com.tp.gestiondepenses;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
 import androidx.activity.EdgeToEdge;
@@ -10,55 +11,66 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.tp.gestiondepenses.conf.entity.Depense;
+
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class DepenseListActivity extends AppCompatActivity {
 
-
     RecyclerView ls;
-    String categorie,moyentPaiement,description,date,montant,rubrique;
-    HashMap<String,String> map;
-    Params p =new Params();
+    List<Depense> liste = new ArrayList<>();
+    DepenseAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_depense_list);
 
         ls = findViewById(R.id.lst);
+        ls.setLayoutManager(new LinearLayoutManager(this));
 
-        Bundle extras=getIntent().getExtras();
-        if (extras != null)
-        {
-            montant= extras.getString("montant");
-            moyentPaiement= extras.getString("moyentPaiement");
-            description= extras.getString("description");
-            date= extras.getString("date");
-            rubrique= extras.getString("rubrique");
-            categorie= extras.getString("categorie");
+        Bundle extras = getIntent().getExtras();
 
-            map= new HashMap<String,String>();
-            map.put("montant",categorie);
-            map.put("moyentPaiement",categorie);
-            map.put("description",categorie);
-            map.put("date",categorie);
-            map.put("rubrique",categorie);
-            map.put("categorie",categorie);
-            p.values.add(map);
+        if (extras != null) {
+            String montantStr = extras.getString("montant");
 
+            double montant = 0;
+            if (montantStr != null && !montantStr.isEmpty()) {
+                montant = Double.parseDouble(montantStr);
+            }
+
+            String moyentPaiement = extras.getString("moyentPaiement");
+            String description = extras.getString("description");
+            String date = extras.getString("date");
+
+            String RubriqueStr = extras.getString("rubrique");
+            int rubrique = 0;
+            if (RubriqueStr != null && !RubriqueStr.isEmpty()) {
+                rubrique = Integer.parseInt(RubriqueStr);
+            }
+
+            String CategorieStr = extras.getString("categorie");
+            int categorie = 0;
+            if (CategorieStr != null && !CategorieStr.isEmpty()) {
+                categorie = Integer.parseInt(CategorieStr);
+            }
+
+            String DateStr = extras.getString("date");
+            long date = 0;
+            if (DateStr != null && !DateStr.isEmpty()) {
+                date = Long.parseLong(DateStr);
+            }
+
+            Depense d = new Depense(montant, moyentPaiement, description, date, rubrique, categorie);
+            liste.add(d);
         }
 
-        SimpleAdapter adapter = new SimpleAdapter(DepenseListActivity.this,p.values,R.layout.item,
-                new String[]{"montant","moyentPaiement","description","date","rubrique","categorie"},
-                new int[]{R.id.montant,R.id.moyenPaiement,R.id.description,R.id.dateDepense,R.id.rubriqueList,R.id.categorieList}
-                );
+        adapter = new DepenseAdapter(liste);
         ls.setAdapter(adapter);
-
-
-
-
     }
 }

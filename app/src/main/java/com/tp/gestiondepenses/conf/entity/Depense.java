@@ -3,6 +3,8 @@ package com.tp.gestiondepenses.conf.entity;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.time.LocalDate;
+
 @Entity(tableName = "depenses")
 public class Depense {
 
@@ -16,6 +18,25 @@ public class Depense {
     private String description;
     private String moyen_paiement;
     private long created_at;
+
+
+
+
+    public Depense(double montant, String moyentPaiement, String description,
+                   long date, Integer rubrique, int categorie) {
+        this.montant = montant;
+        this.moyen_paiement = moyentPaiement;
+        this.description = description;
+        this.date = date;
+        this.rubrique_id = rubrique;
+        this.categorie_id = categorie;
+    }
+
+
+
+
+
+
 
     // Getters & Setters
     public int getId() { return id; }
