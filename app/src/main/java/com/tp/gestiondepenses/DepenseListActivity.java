@@ -46,7 +46,6 @@ public class DepenseListActivity extends AppCompatActivity {
 
             String moyentPaiement = extras.getString("moyentPaiement");
             String description = extras.getString("description");
-            String date = extras.getString("date");
 
             String RubriqueStr = extras.getString("rubrique");
             int rubrique = 0;

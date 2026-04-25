@@ -20,7 +20,9 @@ public class Depense {
     private long created_at;
 
 
+    public Depense(){
 
+    }
 
     public Depense(double montant, String moyentPaiement, String description,
                    long date, Integer rubrique, int categorie) {
