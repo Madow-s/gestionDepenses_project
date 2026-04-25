@@ -4,16 +4,12 @@ plugins {
 
 android {
     namespace = "com.tp.gestiondepenses"
-    compileSdk {
-        version = release(36) {
-            minorApiLevel = 1
-        }
-    }
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.tp.gestiondepenses"
-        minSdk = 26
-        targetSdk = 36
+        minSdk = 24
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -31,11 +27,10 @@ android {
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
+
         targetCompatibility = JavaVersion.VERSION_11
     }
 }
-
-
 
 dependencies {
     implementation(libs.appcompat)
@@ -44,7 +39,6 @@ dependencies {
     implementation(libs.constraintlayout)
 
     implementation("androidx.room:room-runtime:2.6.1")
-    implementation(libs.recyclerview)
     annotationProcessor("androidx.room:room-compiler:2.6.1")
 
     testImplementation(libs.junit)
