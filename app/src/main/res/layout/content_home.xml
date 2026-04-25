@@ -7,10 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
 
-    <!-- HAUT (barre visible) -->
-
-
-    <!-- TON CONTENU -->
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -18,6 +14,9 @@
         <include layout="@layout/app_bar_home" />
 
     </com.google.android.material.appbar.AppBarLayout>
+
+
+
 
     <FrameLayout
         android:id="@+id/content_home"

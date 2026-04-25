@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Gestiondepenses">
         <activity
+            android:name=".DepenseListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".conf.DepenseListActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
