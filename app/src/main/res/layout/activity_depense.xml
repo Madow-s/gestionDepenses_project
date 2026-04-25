@@ -47,12 +47,12 @@ android:padding="16dp">
     android:layout_width="match_parent"
     android:layout_height="wrap_content" />
 
-<Spinner
-    android:id="@+id/rubriqueList"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content" />
+    <Spinner
+        android:id="@+id/rubriqueList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
-<Button
+    <Button
     android:id="@+id/buttonSaveDepense"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
