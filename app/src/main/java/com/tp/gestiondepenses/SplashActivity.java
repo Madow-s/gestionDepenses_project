@@ -3,33 +3,49 @@ package com.tp.gestiondepenses;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Handler;
+
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.tp.gestiondepenses.conf.database.AppDatabase;
+import com.tp.gestiondepenses.conf.entity.User;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 public class SplashActivity extends AppCompatActivity {
+
+    ExecutorService executor = Executors.newSingleThreadExecutor();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
 
-        // Attendre 2 secondes (2000 millisecondes)
-        new Handler().postDelayed(() -> {
+        executor.execute(() -> {
 
-            // Vérifier si l'utilisateur est déjà connecté
+            AppDatabase db = AppDatabase.getInstance(getApplicationContext());
+
+            User admin = db.userDao().getUserByUsername("admin");
+
+            if (admin == null) {
+                User user = new User();
+                user.username = "admin";
+                user.password = "1234";
+                db.userDao().insert(user);
+            }
+
             SharedPreferences prefs = getSharedPreferences("user_prefs", MODE_PRIVATE);
             boolean isLoggedIn = prefs.getBoolean("is_logged_in", false);
 
-            if (isLoggedIn) {
-                // Déjà connecté → aller au Dashboard
-                startActivity(new Intent(SplashActivity.this, MainActivity.class));
-            } else {
-                // Pas connecté → aller à la connexion
-                startActivity(new Intent(SplashActivity.this, LoginActivity.class));
-            }
+            runOnUiThread(() -> {
 
-            finish(); // fermer le SplashScreen pour ne pas y revenir
+                Intent i = isLoggedIn
+                        ? new Intent(this, HomeActivity.class)
+                        : new Intent(this, LoginActivity.class);
 
-        }, 2000);
+                startActivity(i);
+                finish();
+
+            });
+        });
     }
 }
