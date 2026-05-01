@@ -38,7 +38,7 @@ public class LoginActivity extends AppCompatActivity {
                 editor.apply();
 
                 // Aller au Dashboard
-                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
                 finish();
 
             } else {

@@ -1,37 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity">
+    android:orientation="vertical"
+    android:background="#FAFAFA">
 
-    <com.google.android.material.appbar.AppBarLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingBottom="16dp">
 
-        <include layout="@layout/app_bar_home" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
 
-    </com.google.android.material.appbar.AppBarLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bonjour, Utilisateur"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#333333" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vue d'ensemble"
+                android:textSize="16sp"
+                android:textColor="#666666"
+                android:layout_marginTop="8dp" />
 
+            <TextView
+                android:id="@+id/tv_month"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="mai 2026"
+                android:textSize="14sp"
+                android:textColor="#999999"
+                android:layout_marginBottom="16dp" />
 
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="2dp"
+                app:cardCornerRadius="12dp"
+                android:layout_marginBottom="24dp">
 
-    <FrameLayout
-        android:id="@+id/content_home"
-        android:layout_width="match_parent"
-        android:layout_height="660dp"
-        android:background="@color/orange"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="24dp">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Solde du mois"
+                        android:textSize="14sp"
+                        android:textColor="#757575" />
 
+                    <TextView
+                        android:id="@+id/tv_solde"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0.00 €"
+                        android:textSize="40sp"
+                        android:textStyle="bold"
+                        android:textColor="#333333"
+                        android:layout_marginVertical="8dp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_revenus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="↗ Revenus: 0.00 €"
+                            android:textSize="14sp"
+                            android:textColor="#4CAF50"
+                            android:layout_marginEnd="16dp" />
+
+                        <TextView
+                            android:id="@+id/tv_depenses"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="↘ Dépenses: 0.00 €"
+                            android:textSize="14sp"
+                            android:textColor="#F44336" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="2dp"
+                app:cardCornerRadius="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Transactions récentes"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:padding="16dp" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_transactions"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:nestedScrollingEnabled="false" />
+
+                    <TextView
+                        android:id="@+id/tv_empty"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Aucune transaction"
+                        android:gravity="center"
+                        android:padding="32dp"
+                        android:textColor="#999999"
+                        android:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/btn_add_first"
+                        style="@style/Widget.Material3.Button.TextButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Ajouter votre première dépense"
+                        android:textColor="#6200EE"
+                        android:layout_margin="16dp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Floating Action Button -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
+        android:id="@+id/fab_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        android:src="@android:drawable/ic_input_add"
+        app:backgroundTint="#6200EE"
+        app:tint="@android:color/white" />
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:menu="@menu/bottom_navigation_menu" />
+
+</LinearLayout>

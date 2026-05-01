@@ -27,21 +27,21 @@ android {
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
-
         targetCompatibility = JavaVersion.VERSION_11
     }
 }
 
 dependencies {
-    implementation(libs.appcompat)
+    implementation(libs.androidx.appcompat)
     implementation(libs.material)
-    implementation(libs.activity)
-    implementation(libs.constraintlayout)
-
-    implementation("androidx.room:room-runtime:2.6.1")
-    annotationProcessor("androidx.room:room-compiler:2.6.1")
+    implementation(libs.androidx.activity)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.core)
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.room.runtime)
+    annotationProcessor(libs.androidx.room.compiler)
 
     testImplementation(libs.junit)
-    androidTestImplementation(libs.ext.junit)
-    androidTestImplementation(libs.espresso.core)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
 }
