@@ -1,5 +1,9 @@
 [versions]
+<<<<<<< HEAD
 agp = "8.13.2"
+=======
+agp = "9.1.1"
+>>>>>>> Connexion
 junit = "4.13.2"
 junitVersion = "1.3.0"
 espressoCore = "3.5.1"

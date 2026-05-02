@@ -9,7 +9,11 @@ android {
     defaultConfig {
         applicationId = "com.tp.gestiondepenses"
         minSdk = 26
+<<<<<<< HEAD
         targetSdk = 34
+=======
+        targetSdk = 36
+>>>>>>> Connexion
         versionCode = 1
         versionName = "1.0"
 
