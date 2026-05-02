@@ -14,8 +14,9 @@ import androidx.room.RoomDatabase;
         Rubrique.class,
         Depense.class,
         Revenu.class,
-        Budget.class
-}, version = 1)
+        Budget.class,
+        User.class
+}, version = 1, exportSchema = false)
 
 
 public abstract class AppDatabase extends RoomDatabase {
@@ -25,6 +26,7 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract DepenseDAO depenseDao();
     public abstract RevenuDAO revenuDao();
     public abstract BudgetDAO budgetDao();
+    public abstract UserDAO userDao();
 
 
     private static AppDatabase instance;
