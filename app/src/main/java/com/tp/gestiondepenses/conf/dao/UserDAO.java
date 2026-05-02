@@ -10,7 +10,8 @@ import com.tp.gestiondepenses.conf.entity.User;
 public interface UserDAO {
 
     @Insert
-    void insert(User user);
+    void insert(
+            User user);
 
     @Query("SELECT * FROM user WHERE username = :username AND password = :password LIMIT 1")
     User login(String username, String password);
