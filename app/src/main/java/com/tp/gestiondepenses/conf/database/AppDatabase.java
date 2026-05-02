@@ -14,12 +14,8 @@ import androidx.room.RoomDatabase;
         Rubrique.class,
         Depense.class,
         Revenu.class,
-<<<<<<< HEAD
-        Budget.class
-=======
         Budget.class,
         User.class
->>>>>>> Connexion
 }, version = 1, exportSchema = false)
 
 
