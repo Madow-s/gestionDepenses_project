@@ -13,6 +13,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.tp.gestiondepenses.conf.database.AppDatabase;
+import com.tp.gestiondepenses.conf.entity.User;
+
 public class register extends AppCompatActivity {
 
     EditText edtFullname, edtEmailAdress, edtPassword, edtDOB, edtPhoneNumber, edtBio;
@@ -47,7 +50,46 @@ public class register extends AppCompatActivity {
             }
         });
 
+        btnRegsiterReg.setOnClickListener(view -> {
 
+            String strUsername = edtFullname.getText().toString().trim();
+            String strEmail = edtEmailAdress.getText().toString().trim();
+            String strPassword = edtPassword.getText().toString().trim();
+            String strDOB = edtDOB.getText().toString().trim();
+            String strPhoneNumber = edtPhoneNumber.getText().toString().trim();
+            String strBio = edtBio.getText().toString().trim();
+
+            if (strUsername.isEmpty() || strEmail.isEmpty() || strPassword.isEmpty()
+                    || strDOB.isEmpty() || strPhoneNumber.isEmpty() || strBio.isEmpty()) {
+
+                txtDisplayInfoReg.setText("Tous les champs sont obligatoires");
+                return;
+            }
+
+            new Thread(() -> {
+
+                AppDatabase db = AppDatabase.getInstance(getApplicationContext());
+
+                User user = new User();
+                user.setUsername(strUsername);
+                user.setEmail(strEmail);
+                user.setPassword(strPassword);
+                user.setDateOB(strDOB);
+                user.setPhoneNumber(strPhoneNumber);
+                user.setBio(strBio);
+
+                db.userDao().insert(user);
+
+                runOnUiThread(() -> {
+                    txtDisplayInfoReg.setText("Inscription réussie");
+
+                    // Redirection vers login
+                    startActivity(new Intent(register.this, MainActivity.class));
+                    finish();
+                });
+
+            }).start();
+        });
 
 
 

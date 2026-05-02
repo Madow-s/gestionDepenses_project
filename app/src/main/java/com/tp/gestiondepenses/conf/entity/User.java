@@ -7,13 +7,18 @@ import androidx.room.PrimaryKey;
 public class User {
 
     @PrimaryKey(autoGenerate = true)
-    public int id;
-    public String username;
-    public String email;
-    public String password;
-    public String DateOB;
-    public String phoneNumber;
-    public String Bio;
+    private int id;
+    private String username;
+    private String email;
+    private String password;
+    private String DateOB;
+    private String phoneNumber;
+    private String Bio;
+
+
+
+
+
 
     // Getter & Setter ID
     public int getId() {
