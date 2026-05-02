@@ -4,11 +4,11 @@ plugins {
 
 android {
     namespace = "com.tp.gestiondepenses"
-    compileSdk = 36
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.tp.gestiondepenses"
-        minSdk = 26
+        minSdk = 24
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"

@@ -16,15 +16,12 @@
     </com.google.android.material.appbar.AppBarLayout>
 
 
-
-
     <FrameLayout
         android:id="@+id/content_home"
         android:layout_width="match_parent"
         android:layout_height="660dp"
         android:background="@color/orange"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"

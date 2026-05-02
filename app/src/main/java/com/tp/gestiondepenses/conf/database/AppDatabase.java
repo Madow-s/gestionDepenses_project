@@ -15,7 +15,7 @@ import androidx.room.RoomDatabase;
         Depense.class,
         Revenu.class,
         Budget.class
-}, version = 1, exportSchema = false)
+}, version = 1)
 
 
 public abstract class AppDatabase extends RoomDatabase {
