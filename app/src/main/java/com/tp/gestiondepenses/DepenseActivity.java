@@ -54,8 +54,8 @@ public class DepenseActivity extends AppCompatActivity {
                 i.putExtra("moyentPaiement", moyentPaiement.getText().toString());
                 i.putExtra("description", description.getText().toString());
                 i.putExtra("date", date.getText().toString());
-                i.putExtra("rubrique", rubrique.getSelectedItem().toString());
-                i.putExtra("categorie", categorie.getSelectedItem().toString());
+                i.putExtra("rubrique","Aucune");
+                i.putExtra("categorie","Aucune");
 
                 startActivity(i);
 

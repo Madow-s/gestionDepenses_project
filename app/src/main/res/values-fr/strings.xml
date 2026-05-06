@@ -6,6 +6,7 @@
     <string name="connection">Connection</string>
     <string name="sign_up">Se connecter</string>
 
+    <string name="add_depense">Ajouter Depense</string>
     <string name="list_depense">Liste Depense</string>
     <string name="list_revenue">Liste Revenue</string>
     <string name="details_depense">Details Depense</string>

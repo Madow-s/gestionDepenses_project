@@ -21,7 +21,18 @@
         android:layout_width="match_parent"
         android:layout_height="660dp"
         android:background="@color/orange"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <Button
+        android:id="@+id/btnDepense"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="100dp"
+        android:text="@string/add_depense"
+        android:paddingTop="10dp"/>
+
+    </FrameLayout>
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"

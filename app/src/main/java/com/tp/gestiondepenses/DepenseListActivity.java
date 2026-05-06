@@ -47,23 +47,10 @@ public class DepenseListActivity extends AppCompatActivity {
             String moyentPaiement = extras.getString("moyentPaiement");
             String description = extras.getString("description");
 
-            String RubriqueStr = extras.getString("rubrique");
-            int rubrique = 0;
-            if (RubriqueStr != null && !RubriqueStr.isEmpty()) {
-                rubrique = Integer.parseInt(RubriqueStr);
-            }
+            String rubrique = extras.getString("rubrique");
+            String categorie = extras.getString("categorie");
 
-            String CategorieStr = extras.getString("categorie");
-            int categorie = 0;
-            if (CategorieStr != null && !CategorieStr.isEmpty()) {
-                categorie = Integer.parseInt(CategorieStr);
-            }
-
-            String DateStr = extras.getString("date");
-            long date = 0;
-            if (DateStr != null && !DateStr.isEmpty()) {
-                date = Long.parseLong(DateStr);
-            }
+            String date = extras.getString("date");
 
             Depense d = new Depense(montant, moyentPaiement, description, date, rubrique, categorie);
             liste.add(d);
