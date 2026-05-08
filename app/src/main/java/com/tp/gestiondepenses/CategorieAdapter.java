@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -25,16 +26,13 @@ public class CategorieAdapter extends RecyclerView.Adapter<CategorieAdapter.View
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        EditText nom , icone , couleur;
-        Switch switchDefaut;
-        View view_couleur;
+        TextView nom, couleur;
+        ImageView image;
         public ViewHolder(View itemView) {
             super(itemView);
-            nom = itemView.findViewById(R.id.CategorieName);
-            icone = itemView.findViewById(R.id.CategorieIcon);
-            view_couleur = itemView.findViewById(R.id.viewCouleur);
-            couleur = itemView.findViewById(R.id.CategorieCouleur);
-            switchDefaut = itemView.findViewById(R.id.switchDefaut);
+            nom = itemView.findViewById(R.id.item_nom_categorie);
+            couleur = itemView.findViewById(R.id.item_couleur_categorie);
+            image = itemView.findViewById(R.id.CategorieImage);
         }
     }
     @Override
@@ -50,11 +48,16 @@ public class CategorieAdapter extends RecyclerView.Adapter<CategorieAdapter.View
 
         holder.nom.setText(c.getNom());
 
-        holder.icone.setText(c.getIcone());
-
         holder.couleur.setText(c.getCouleur());
 
-        holder.switchDefaut.setChecked(c.isEst_defaut());
+        String icone = c.getIcone();
+
+        if (icone.equals("food")) {
+            holder.image.setImageResource(R.drawable.ic_launcher_round);
+        }
+        else {
+            holder.image.setImageResource(R.drawable.ic_launcher_round);
+        }
 
     }
 

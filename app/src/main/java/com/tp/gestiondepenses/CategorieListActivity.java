@@ -10,6 +10,7 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.tp.gestiondepenses.conf.database.AppDatabase;
 import com.tp.gestiondepenses.conf.entity.Categorie;
 import com.tp.gestiondepenses.conf.entity.Depense;
 
@@ -30,22 +31,42 @@ public class CategorieListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_categorie_list);
 
         ls = findViewById(R.id.ls);
-        ls.setLayoutManager(new LinearLayoutManager(this));
+
+        ls.setLayoutManager(
+                new LinearLayoutManager(this)
+        );
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                AppDatabase db =
+                        AppDatabase.getInstance(
+                                getApplicationContext()
+                        );
+
+                liste = db.categorieDao().getAll();
+
+                for (Categorie c : liste) {
+                    android.util.Log.d("DB_CATEGORIE",
+                            "Nom: " + c.getNom()
+                                    + " | Couleur: " + c.getCouleur()
+                                    + " | Icone: " + c.getIcone());
+                }
 
 
-        Bundle extras=getIntent().getExtras();
-        if (extras != null){
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
 
-            String nomCategorie = extras.getString("nomCategorie");
-            String iconeCategorie = extras.getString("iconeCategorie");
-            String couleur = extras.getString("couleur");
-            boolean est_defaut = extras.getBoolean("est_defaut");
+                        CategorieAdapter adapter =
+                                new CategorieAdapter(liste);
 
-            Categorie c = new Categorie(nomCategorie, iconeCategorie, couleur, est_defaut );
-            liste.add(c);
-
-        }
-
+                        ls.setAdapter(adapter);
+                    }
+                });
+            }
+        }).start();
 
 
     }

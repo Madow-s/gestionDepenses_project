@@ -20,14 +20,14 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/nom_categorie_item"
+            android:id="@+id/item_nom_categorie"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="25dp"
             android:text="Nom_Categorie" />
 
         <TextView
-            android:id="@+id/couleur_categorie_item"
+            android:id="@+id/item_couleur_categorie"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="15dp"

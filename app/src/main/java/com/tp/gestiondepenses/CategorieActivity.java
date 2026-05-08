@@ -13,6 +13,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.tp.gestiondepenses.conf.database.AppDatabase;
+import com.tp.gestiondepenses.conf.entity.Categorie;
+
 public class CategorieActivity extends AppCompatActivity {
 
     EditText nom , icone , couleur;
@@ -37,16 +40,47 @@ public class CategorieActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i =new Intent(getApplicationContext(),CategorieListActivity.class);
 
-                i.putExtra("Nom", nom.getText().toString());
-                i.putExtra("Icone", icone.getText().toString());
-                i.putExtra("couleur", couleur.getText().toString());
-                i.putExtra("switchDefaut", switchDefaut.getText().toString());
+                String nomValue = nom.getText().toString();
+                String iconeValue = icone.getText().toString();
+                String couleurValue = couleur.getText().toString();
 
-                startActivity(i);
+                boolean estDefaut =
+                        switchDefaut.isChecked();
+
+                Categorie categorie = new Categorie(
+                        nomValue,
+                        iconeValue,
+                        couleurValue,
+                        estDefaut
+                );
+
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        AppDatabase db =
+                                AppDatabase.getInstance(
+                                        getApplicationContext()
+                                );
+
+                        db.categorieDao().insert(categorie);
+
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+
+                                Intent i = new Intent(
+                                        CategorieActivity.this,
+                                        CategorieListActivity.class
+                                );
+
+                                startActivity(i);
+                            }
+                        });
+                    }
+                }).start();
             }
-
         });
     }
 
