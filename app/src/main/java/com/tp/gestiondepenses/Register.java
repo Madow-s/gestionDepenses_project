@@ -9,14 +9,11 @@ import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.tp.gestiondepenses.conf.database.AppDatabase;
 import com.tp.gestiondepenses.conf.entity.User;
 
-public class register extends AppCompatActivity {
+public class Register extends AppCompatActivity {
 
     EditText edtFullname, edtEmailAdress, edtPassword, edtDOB, edtPhoneNumber, edtBio;
     Button btnRegsiterReg , btnLoginReg ;
@@ -45,7 +42,7 @@ public class register extends AppCompatActivity {
         btnLoginReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(register.this, MainActivity.class);
+                Intent i = new Intent(Register.this, MainActivity.class);
                 startActivity(i);
             }
         });
@@ -84,7 +81,7 @@ public class register extends AppCompatActivity {
                     txtDisplayInfoReg.setText("Inscription réussie");
 
                     // Redirection vers login
-                    startActivity(new Intent(register.this, MainActivity.class));
+                    startActivity(new Intent(Register.this, MainActivity.class));
                     finish();
                 });
 

@@ -14,6 +14,18 @@ public class Categorie {
     private String couleur;
     private boolean est_defaut;
 
+    // Constructeur vide (important pour Room)
+    public Categorie() {
+    }
+
+    // Constructeur avec paramètres
+    public Categorie(String nom, String icone, String couleur, boolean est_defaut) {
+        this.nom = nom;
+        this.icone = icone;
+        this.couleur = couleur;
+        this.est_defaut = est_defaut;
+    }
+
     // Getters et Setters
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
