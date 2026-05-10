@@ -3,6 +3,7 @@ package com.tp.gestiondepenses;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
@@ -14,6 +15,8 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.tp.gestiondepenses.conf.database.AppDatabase;
+import com.tp.gestiondepenses.conf.entity.Categorie;
 import com.tp.gestiondepenses.conf.entity.Depense;
 
 import java.util.ArrayList;
@@ -26,50 +29,70 @@ public class DepenseListActivity extends AppCompatActivity {
     List<Depense> liste = new ArrayList<>();
     DepenseAdapter adapter;
 
+    Button boutonAjout, btnCat;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_depense_list);
 
         ls = findViewById(R.id.lst);
-        ls.setLayoutManager(new LinearLayoutManager(this));
+        boutonAjout = findViewById(R.id.btnAjoutDep);
+        btnCat = findViewById(R.id.btnCat);
 
-        Bundle extras = getIntent().getExtras();
+        ls.setLayoutManager(
+                new LinearLayoutManager(this)
+        );
 
-        if (extras != null) {
-            String montantStr = extras.getString("montant");
+        new Thread(() -> {
 
-            double montant = 0;
-            if (montantStr != null && !montantStr.isEmpty()) {
-                montant = Double.parseDouble(montantStr);
+            AppDatabase db =
+                    AppDatabase.getInstance(
+                            getApplicationContext()
+                    );
+
+            liste =
+                    db.depenseDao().getAll();
+
+            List<Categorie> categories =
+                    db.categorieDao().getAll();
+
+            runOnUiThread(() -> {
+
+                adapter =
+                        new DepenseAdapter(
+                                liste,
+                                categories
+                        );
+
+                ls.setAdapter(adapter);
+
+            });
+
+        }).start();
+
+
+        boutonAjout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent i = new Intent(DepenseListActivity.this, DepenseActivity.class);
+                startActivity(i);
+
             }
+        });
 
-            String moyentPaiement = extras.getString("moyentPaiement");
-            String description = extras.getString("description");
+        btnCat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-            String RubriqueStr = extras.getString("rubrique");
-            int rubrique = 0;
-            if (RubriqueStr != null && !RubriqueStr.isEmpty()) {
-                rubrique = Integer.parseInt(RubriqueStr);
+                Intent i = new Intent(DepenseListActivity.this, CategorieActivity.class);
+                startActivity(i);
+
             }
-
-            String CategorieStr = extras.getString("categorie");
-            int categorie = 0;
-            if (CategorieStr != null && !CategorieStr.isEmpty()) {
-                categorie = Integer.parseInt(CategorieStr);
-            }
-
-            String DateStr = extras.getString("date");
-            long date = 0;
-            if (DateStr != null && !DateStr.isEmpty()) {
-                date = Long.parseLong(DateStr);
-            }
-
-            Depense d = new Depense(montant, moyentPaiement, description, date, rubrique, categorie);
-            liste.add(d);
-        }
-
-        adapter = new DepenseAdapter(liste);
-        ls.setAdapter(adapter);
+        });
     }
+
+
+
 }

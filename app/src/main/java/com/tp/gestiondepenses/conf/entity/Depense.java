@@ -12,9 +12,9 @@ public class Depense {
     private int id;
 
     private int categorie_id;
-    private Integer rubrique_id; // nullable
+    private String rubrique_id; // nullable
     private double montant;
-    private long date;
+    private String date;
     private String description;
     private String moyen_paiement;
     private long created_at;
@@ -25,7 +25,7 @@ public class Depense {
     }
 
     public Depense(double montant, String moyentPaiement, String description,
-                   long date, Integer rubrique, int categorie) {
+                   String date,int categorie, String rubrique) {
         this.montant = montant;
         this.moyen_paiement = moyentPaiement;
         this.description = description;
@@ -37,9 +37,6 @@ public class Depense {
 
 
 
-
-
-
     // Getters & Setters
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
@@ -47,14 +44,14 @@ public class Depense {
     public int getCategorie_id() { return categorie_id; }
     public void setCategorie_id(int categorie_id) { this.categorie_id = categorie_id; }
 
-    public Integer getRubrique_id() { return rubrique_id; }
-    public void setRubrique_id(Integer rubrique_id) { this.rubrique_id = rubrique_id; }
+    public String getRubrique_id() { return rubrique_id; }
+    public void setRubrique_id(String rubrique_id) { this.rubrique_id = rubrique_id; }
 
     public double getMontant() { return montant; }
     public void setMontant(double montant) { this.montant = montant; }
 
-    public long getDate() { return date; }
-    public void setDate(long date) { this.date = date; }
+    public String getDate() { return date; }
+    public void setDate(String date) { this.date = date; }
 
     public String getDescription() { return description; }
     public void setDescription(String description) { this.description = description; }

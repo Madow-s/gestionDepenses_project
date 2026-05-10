@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/orange"
-    tools:context=".DepenseListActivity">
+    tools:context=".CategorieListActivity">
 
     <!-- Barre du haut -->
     <com.google.android.material.appbar.AppBarLayout
@@ -27,38 +27,38 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <TextView
+            android:id="@+id/ListCategorie"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/depense"
+            android:text="Catégories"
             android:textSize="32sp"
-            android:textStyle="normal"
-            android:gravity="start"
             android:paddingTop="20dp"
-            android:paddingBottom="20dp" />
+            android:paddingBottom="20dp"
+            android:gravity="start" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/lst"
+            android:id="@+id/ls"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
-            />
+            android:background="@color/white" />
 
         <Button
-            android:id="@+id/btnAjoutDep"
+            android:id="@+id/btnAjoutCat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:backgroundTint="@color/orange2"
-            android:text="Nouvelle Depense"
+            android:text="Nouvelle Categorie"
             android:textSize="20sp" />
 
+
         <Button
-            android:id="@+id/btnCat"
+            android:id="@+id/RetourListeDep"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:backgroundTint="@color/orange2"
-            android:text=" +Categorie"
+            android:text="Depense"
             android:textSize="20sp" />
 
     </LinearLayout>

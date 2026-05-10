@@ -12,16 +12,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Gestiondepenses">
         <activity
-            android:name=".register"
+            android:name=".CategorieListActivity"
+            android:exported="true" />
+        <activity
+            android:name=".CategorieActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Register"
             android:exported="false" />
         <activity
             android:name=".DepenseListActivity"
             android:exported="true" />
         <activity
-            android:name=".SplashActivity"
-            android:exported="true" />
-        <activity
-            android:name=".LoginActivity"
+            android:name=".DepenseActivity"
             android:exported="true" />
         <activity
             android:name=".HomeActivity"
