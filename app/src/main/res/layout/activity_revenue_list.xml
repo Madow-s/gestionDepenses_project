@@ -3,13 +3,9 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/orange"
-    tools:context=".DepenseListActivity">
+    android:layout_height="match_parent">
 
-    <!-- Barre du haut -->
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -18,19 +14,19 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <!-- Contenu -->
+
+
     <LinearLayout
-        android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <TextView
-            android:id="@+id/ListmDep"
+            android:id="@+id/ListRev"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Depense"
+            android:text="Revenue"
             android:textSize="34sp"
             android:textStyle="bold"
             android:textColor="@color/red"
@@ -42,32 +38,27 @@
             android:letterSpacing="0.02"
             android:fontFamily="sans-serif-medium"/>
 
+
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/lst"
+            android:id="@+id/lstRevenu"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            />
+            android:layout_height="wrap_content" />
+
+
 
         <Button
-            android:id="@+id/btnAjoutDep"
+            android:id="@+id/btnAjoutRev"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:backgroundTint="@color/orange2"
-            android:text="Nouvelle Depense"
+            android:text="Nouveau Revenue"
             android:textSize="20sp" />
 
-        <Button
-            android:id="@+id/btnCat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="@color/orange2"
-            android:text=" +Categorie"
-            android:textSize="20sp" />
+
 
     </LinearLayout>
+
 
     <!-- MENU BAS -->
     <com.google.android.material.bottomnavigation.BottomNavigationView

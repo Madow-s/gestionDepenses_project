@@ -36,12 +36,12 @@
             android:textSize="20sp"/>
 
         <Button
-            android:id="@+id/btnCategorie"
+            android:id="@+id/btnRevenue"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:backgroundTint="@color/orange2"
-            android:text="Voir Catégorie"
+            android:text="Voir Revenue"
             android:textSize="20sp"/>
 
     </LinearLayout>

@@ -27,14 +27,20 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <TextView
-            android:id="@+id/ListCategorie"
+            android:id="@+id/ListCat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Catégories"
-            android:textSize="32sp"
+            android:text="Categorie"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            android:textColor="@color/red"
+            android:gravity="start"
             android:paddingTop="20dp"
             android:paddingBottom="20dp"
-            android:gravity="start" />
+            android:paddingStart="26dp"
+            android:elevation="4dp"
+            android:letterSpacing="0.02"
+            android:fontFamily="sans-serif-medium"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/ls"

@@ -17,14 +17,20 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <TextView
+        android:id="@+id/FormDep"
         android:layout_width="match_parent"
-        android:layout_height="166dp"
+        android:layout_height="wrap_content"
+        android:text="Depense"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        android:textColor="@color/red"
         android:gravity="start"
-        android:paddingTop="90dp"
+        android:paddingTop="80dp"
         android:paddingBottom="20dp"
-        android:text="@string/depense"
-        android:textSize="32sp"
-        android:textStyle="normal" />
+        android:paddingStart="26dp"
+        android:elevation="4dp"
+        android:letterSpacing="0.02"
+        android:fontFamily="sans-serif-medium"/>
 
     <!-- Contenu de la page -->
     <LinearLayout

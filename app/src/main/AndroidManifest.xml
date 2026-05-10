@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Gestiondepenses">
         <activity
+            android:name=".RevenuListActivity"
+            android:exported="true" />
+        <activity
+            android:name=".RevenuActivity"
+            android:exported="true" />
+        <activity
             android:name=".CategorieListActivity"
             android:exported="true" />
         <activity
