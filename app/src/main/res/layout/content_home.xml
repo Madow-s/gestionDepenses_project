@@ -16,22 +16,34 @@
     </com.google.android.material.appbar.AppBarLayout>
 
 
-    <FrameLayout
+    <LinearLayout
         android:id="@+id/content_home"
         android:layout_width="match_parent"
-        android:layout_height="660dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp"
         android:background="@color/orange"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    <Button
-        android:id="@+id/btnDepense"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="100dp"
-        android:text="@string/add_depense"
-        android:paddingTop="10dp"/>
+        <Button
+            android:id="@+id/btnDepense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="600dp"
+            android:backgroundTint="@color/orange2"
+            android:text="voir Dépense"
+            android:textSize="20sp" />
 
-    </FrameLayout>
+        <Button
+            android:id="@+id/btnCategorie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/orange2"
+            android:text="voir Catégorie"
+            android:textSize="20sp" />
+
+    </LinearLayout>
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

@@ -26,6 +26,12 @@ public class Categorie {
         this.est_defaut = est_defaut;
     }
 
+
+    @Override
+    public String toString() {
+        return nom;
+    }
+
     // Getters et Setters
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }

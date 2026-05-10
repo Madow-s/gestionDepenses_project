@@ -6,6 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/orange"
     tools:context=".DepenseListActivity">
 
     <!-- Barre du haut -->
@@ -29,15 +30,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/depense"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:paddingBottom="16dp" />
+            android:textSize="32sp"
+            android:textStyle="normal"
+            android:gravity="start"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/lst"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            />
 
     </LinearLayout>
 

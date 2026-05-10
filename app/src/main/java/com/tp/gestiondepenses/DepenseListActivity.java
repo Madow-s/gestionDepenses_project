@@ -14,6 +14,8 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.tp.gestiondepenses.conf.database.AppDatabase;
+import com.tp.gestiondepenses.conf.entity.Categorie;
 import com.tp.gestiondepenses.conf.entity.Depense;
 
 import java.util.ArrayList;
@@ -32,31 +34,36 @@ public class DepenseListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_depense_list);
 
         ls = findViewById(R.id.lst);
-        ls.setLayoutManager(new LinearLayoutManager(this));
 
-        Bundle extras = getIntent().getExtras();
+        ls.setLayoutManager(
+                new LinearLayoutManager(this)
+        );
 
-        if (extras != null) {
-            String montantStr = extras.getString("montant");
+        new Thread(() -> {
 
-            double montant = 0;
-            if (montantStr != null && !montantStr.isEmpty()) {
-                montant = Double.parseDouble(montantStr);
-            }
+            AppDatabase db =
+                    AppDatabase.getInstance(
+                            getApplicationContext()
+                    );
 
-            String moyentPaiement = extras.getString("moyentPaiement");
-            String description = extras.getString("description");
+            liste =
+                    db.depenseDao().getAll();
 
-            String rubrique = extras.getString("rubrique");
-            String categorie = extras.getString("categorie");
+            List<Categorie> categories =
+                    db.categorieDao().getAll();
 
-            String date = extras.getString("date");
+            runOnUiThread(() -> {
 
-            Depense d = new Depense(montant, moyentPaiement, description, date, rubrique, categorie);
-            liste.add(d);
-        }
+                adapter =
+                        new DepenseAdapter(
+                                liste,
+                                categories
+                        );
 
-        adapter = new DepenseAdapter(liste);
-        ls.setAdapter(adapter);
+                ls.setAdapter(adapter);
+
+            });
+
+        }).start();
     }
 }

@@ -13,7 +13,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class HomeActivity extends AppCompatActivity {
 
-    Button btnDepense;
+    Button btnDepense, btnCategorie;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,9 +27,20 @@ public class HomeActivity extends AppCompatActivity {
         btnDepense.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, DepenseActivity.class);
+                Intent intent = new Intent(HomeActivity.this, DepenseListActivity.class);
                 startActivity(intent);
             }
+        });
+
+        btnCategorie.setOnClickListener(v -> {
+
+            Intent i = new Intent(
+                    HomeActivity.this,
+                    CategorieListActivity.class
+            );
+
+            startActivity(i);
+
         });
     }
 

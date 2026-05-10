@@ -11,7 +11,7 @@ public class Depense {
     @PrimaryKey(autoGenerate = true)
     private int id;
 
-    private String categorie_id;
+    private int categorie_id;
     private String rubrique_id; // nullable
     private double montant;
     private String date;
@@ -25,7 +25,7 @@ public class Depense {
     }
 
     public Depense(double montant, String moyentPaiement, String description,
-                   String date, String rubrique, String categorie) {
+                   String date,int categorie, String rubrique) {
         this.montant = montant;
         this.moyen_paiement = moyentPaiement;
         this.description = description;
@@ -37,15 +37,12 @@ public class Depense {
 
 
 
-
-
-
     // Getters & Setters
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
 
-    public String getCategorie_id() { return categorie_id; }
-    public void setCategorie_id(String categorie_id) { this.categorie_id = categorie_id; }
+    public int getCategorie_id() { return categorie_id; }
+    public void setCategorie_id(int categorie_id) { this.categorie_id = categorie_id; }
 
     public String getRubrique_id() { return rubrique_id; }
     public void setRubrique_id(String rubrique_id) { this.rubrique_id = rubrique_id; }
