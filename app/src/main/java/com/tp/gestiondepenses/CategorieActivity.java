@@ -21,7 +21,7 @@ public class CategorieActivity extends AppCompatActivity {
     EditText nom , icone , couleur;
     Switch switchDefaut;
     View view_couleur;
-    Button btn;
+    Button btn , annuler;
 
 
     @Override
@@ -36,6 +36,7 @@ public class CategorieActivity extends AppCompatActivity {
         couleur = findViewById(R.id.CategorieCouleur);
         switchDefaut = findViewById(R.id.switchDefaut);
         btn = findViewById(R.id.CategorieButton);
+        annuler = findViewById(R.id.annuler);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,6 +81,16 @@ public class CategorieActivity extends AppCompatActivity {
                         });
                     }
                 }).start();
+            }
+        });
+
+        annuler.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent i = new Intent(CategorieActivity.this, CategorieListActivity.class);
+                startActivity(i);
+
             }
         });
     }

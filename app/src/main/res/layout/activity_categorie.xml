@@ -40,7 +40,7 @@
         android:padding="16dp"
         android:background="@color/white"
         android:layout_marginTop="100dp"
-        android:layout_marginBottom="200dp"
+        android:layout_marginBottom="170dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
 
@@ -100,10 +100,31 @@
             android:id="@+id/CategorieButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:backgroundTint="@color/orange2"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="16dp"
             android:text="Ajouter catégorie" />
 
+        <Button
+            android:id="@+id/annuler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Annuler"
+            android:backgroundTint="@color/orange2"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="8dp" />
+
     </LinearLayout>
+
+    <!-- MENU BAS -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/white"
+        app:itemIconTint="@color/black"
+        app:itemTextColor="@color/black"
+        app:menu="@menu/bottom_menu"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

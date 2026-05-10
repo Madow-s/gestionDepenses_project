@@ -46,8 +46,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/sign_up"
-        android:backgroundTint="@color/orange"
-        android:textColor="@android:color/black"
+        android:backgroundTint="@color/orange2"
+        android:textColor="@android:color/white"
         android:padding="12dp" />
 
 
@@ -57,8 +57,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="S'enregistrer"
-        android:backgroundTint="@color/orange"
-        android:textColor="@android:color/black"
+        android:backgroundTint="@color/orange2"
+        android:textColor="@android:color/white"
         android:padding="12dp" />
 
 

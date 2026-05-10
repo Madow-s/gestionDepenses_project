@@ -15,6 +15,7 @@ public class HomeActivity extends AppCompatActivity {
 
     Button btnDepense, btnCategorie;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +24,7 @@ public class HomeActivity extends AppCompatActivity {
 
 
         btnDepense = findViewById(R.id.btnDepense);
+        btnCategorie = findViewById(R.id.btnCategorie);
 
         btnDepense.setOnClickListener(new View.OnClickListener() {
             @Override

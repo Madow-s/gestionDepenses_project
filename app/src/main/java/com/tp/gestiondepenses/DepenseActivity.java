@@ -175,6 +175,17 @@ public class DepenseActivity extends AppCompatActivity {
 
         }).start();
 
+
+        annuler.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent i = new Intent(DepenseActivity.this, DepenseListActivity.class);
+                startActivity(i);
+
+            }
+        });
+
     }
 
 

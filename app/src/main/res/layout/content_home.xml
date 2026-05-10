@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -7,32 +8,32 @@
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
 
+    <!-- APP BAR -->
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <include layout="@layout/app_bar_home" />
+        <include layout="@layout/app_bar_home"/>
 
     </com.google.android.material.appbar.AppBarLayout>
 
-
+    <!-- CONTENU -->
     <LinearLayout
         android:id="@+id/content_home"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
         android:orientation="vertical"
         android:padding="20dp"
-        android:background="@color/orange"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        android:background="@color/orange">
 
         <Button
             android:id="@+id/btnDepense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="600dp"
             android:backgroundTint="@color/orange2"
-            android:text="voir Dépense"
-            android:textSize="20sp" />
+            android:text="Voir Dépense"
+            android:textSize="20sp"/>
 
         <Button
             android:id="@+id/btnCategorie"
@@ -40,18 +41,21 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:backgroundTint="@color/orange2"
-            android:text="voir Catégorie"
-            android:textSize="20sp" />
+            android:text="Voir Catégorie"
+            android:textSize="20sp"/>
 
     </LinearLayout>
 
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
+    <!-- MENU BAS -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        android:layout_gravity="bottom"
+        android:background="@color/white"
+        app:itemIconTint="@color/black"
+        app:itemTextColor="@color/black"
+        app:menu="@menu/bottom_menu"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
+

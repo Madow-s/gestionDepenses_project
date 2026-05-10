@@ -1,6 +1,9 @@
 package com.tp.gestiondepenses;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +26,7 @@ public class CategorieListActivity extends AppCompatActivity {
 
     RecyclerView ls;
     List<Categorie> liste = new ArrayList<>();
+    Button btnAjoutCat , RetourListeDep;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +35,8 @@ public class CategorieListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_categorie_list);
 
         ls = findViewById(R.id.ls);
+        btnAjoutCat = findViewById(R.id.btnAjoutCat);
+        RetourListeDep = findViewById(R.id.RetourListeDep);
 
         ls.setLayoutManager(
                 new LinearLayoutManager(this)
@@ -67,6 +73,26 @@ public class CategorieListActivity extends AppCompatActivity {
                 });
             }
         }).start();
+
+        btnAjoutCat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent i = new Intent(CategorieListActivity.this, CategorieActivity.class);
+                startActivity(i);
+
+            }
+        });
+
+        RetourListeDep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent i = new Intent(CategorieListActivity.this,DepenseListActivity.class);
+                startActivity(i);
+
+            }
+        });
 
 
     }
