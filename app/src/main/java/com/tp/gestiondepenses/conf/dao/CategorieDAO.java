@@ -17,7 +17,7 @@ public interface CategorieDAO {
     void delete(Categorie categorie);
 
     @Query("SELECT * FROM categories")
-    List<Categorie> getAllCategories();
+    List<Categorie> getAll();
 
     @Query("SELECT * FROM categories WHERE id = :id")
     Categorie getCategorieById(int id);

@@ -12,11 +12,29 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Gestiondepenses">
         <activity
-            android:name=".DepenseListActivity"
+            android:name=".RevenuListActivity"
+            android:exported="true" />
+        <activity
+            android:name=".RevenuActivity"
+            android:exported="true" />
+        <activity
+            android:name=".CategorieListActivity"
+            android:exported="true" />
+        <activity
+            android:name=".CategorieActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Register"
             android:exported="false" />
         <activity
-            android:name=".conf.DepenseListActivity"
-            android:exported="false" />
+            android:name=".DepenseListActivity"
+            android:exported="true" />
+        <activity
+            android:name=".DepenseActivity"
+            android:exported="true" />
+        <activity
+            android:name=".HomeActivity"
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

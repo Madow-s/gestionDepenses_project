@@ -9,7 +9,7 @@ android {
     defaultConfig {
         applicationId = "com.tp.gestiondepenses"
         minSdk = 26
-        targetSdk = 34
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 
@@ -39,6 +39,7 @@ dependencies {
     implementation(libs.constraintlayout)
 
     implementation("androidx.room:room-runtime:2.6.1")
+    implementation(libs.recyclerview)
     annotationProcessor("androidx.room:room-compiler:2.6.1")
 
     testImplementation(libs.junit)

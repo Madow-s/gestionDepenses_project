@@ -1,15 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".DepenseListActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/lst"
+    <!-- Barre du haut -->
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-</LinearLayout>
+        android:layout_height="wrap_content">
+
+        <include layout="@layout/app_bar_home"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Contenu -->
+    <LinearLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <TextView
+            android:id="@+id/ListmDep"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Depense"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            android:textColor="@color/red"
+            android:gravity="start"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:paddingStart="26dp"
+            android:elevation="4dp"
+            android:letterSpacing="0.02"
+            android:fontFamily="sans-serif-medium"/>
+
+        <TextView
+            android:id="@+id/totalDepenses"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Total : 0 FCFA"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:background="@color/red"
+            android:layout_margin="20dp"
+            android:padding="16dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/lst"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            />
+
+        <Button
+            android:id="@+id/btnAjoutDep"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/orange2"
+            android:text="Nouvelle Depense"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btnCat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/orange2"
+            android:text=" +Categorie"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <!-- MENU BAS -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/white"
+        app:itemIconTint="@color/black"
+        app:itemTextColor="@color/black"
+        app:menu="@menu/bottom_menu"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
