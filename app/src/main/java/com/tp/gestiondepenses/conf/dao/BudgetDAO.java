@@ -18,6 +18,9 @@ public interface BudgetDAO {
     @Query("SELECT * FROM budgets")
     List<Budget> getAll();
 
+    @Query("SELECT * FROM budgets LIMIT 1")
+    Budget getBudget();
+
     @Query("SELECT * FROM budgets WHERE categorie_id = :categorieId")
     List<Budget> getByCategorie(int categorieId);
 }
