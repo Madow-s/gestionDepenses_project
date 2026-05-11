@@ -11,21 +11,44 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Gestiondepenses">
+        
+        <activity
+            android:name=".SplashActivity"
+            android:exported="false" />
+            
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+            
+        <activity
+            android:name=".HomeActivity"
+            android:exported="false" />
+            
+        <activity
+            android:name=".DepenseActivity"
+            android:exported="false" />
+            
         <activity
             android:name=".DepenseListActivity"
             android:exported="false" />
+            
+        <activity
+            android:name=".BudgetActivity"
+            android:exported="true" />
+            
         <activity
             android:name=".conf.DepenseListActivity"
             android:exported="false" />
+            
         <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
     </application>
 
 </manifest>
