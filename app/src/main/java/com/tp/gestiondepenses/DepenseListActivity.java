@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,6 +31,7 @@ public class DepenseListActivity extends AppCompatActivity {
     DepenseAdapter adapter;
 
     Button boutonAjout, btnCat;
+    TextView totalDepenses;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,7 @@ public class DepenseListActivity extends AppCompatActivity {
         ls = findViewById(R.id.lst);
         boutonAjout = findViewById(R.id.btnAjoutDep);
         btnCat = findViewById(R.id.btnCat);
+        totalDepenses = findViewById(R.id.totalDepenses);
 
         ls.setLayoutManager(
                 new LinearLayoutManager(this)
@@ -51,11 +54,12 @@ public class DepenseListActivity extends AppCompatActivity {
                             getApplicationContext()
                     );
 
-            liste =
-                    db.depenseDao().getAll();
+            liste = db.depenseDao().getAll();
 
             List<Categorie> categories =
                     db.categorieDao().getAll();
+
+            double total = db.depenseDao().getTotalDepenses();
 
             runOnUiThread(() -> {
 
@@ -66,6 +70,10 @@ public class DepenseListActivity extends AppCompatActivity {
                         );
 
                 ls.setAdapter(adapter);
+
+                totalDepenses.setText(
+                        "Total dépenses : " + total + " FCFA"
+                );
 
             });
 

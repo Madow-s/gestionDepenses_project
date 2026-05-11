@@ -22,4 +22,7 @@ public interface DepenseDAO {
 
     @Query("SELECT * FROM depenses WHERE categorie_id = :categorieId")
     List<Depense> getByCategorie(int categorieId);
+
+    @Query("SELECT IFNULL(SUM(montant),0) FROM depenses")
+    double getTotalDepenses();
 }

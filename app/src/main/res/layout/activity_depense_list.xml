@@ -6,7 +6,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/orange"
     tools:context=".DepenseListActivity">
 
     <!-- Barre du haut -->
@@ -41,6 +40,18 @@
             android:elevation="4dp"
             android:letterSpacing="0.02"
             android:fontFamily="sans-serif-medium"/>
+
+        <TextView
+            android:id="@+id/totalDepenses"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Total : 0 FCFA"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:background="@color/red"
+            android:layout_margin="20dp"
+            android:padding="16dp"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/lst"

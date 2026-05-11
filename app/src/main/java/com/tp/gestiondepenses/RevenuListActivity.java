@@ -27,6 +27,8 @@ public class RevenuListActivity
     RevenuAdapter adapter;
     Button btnAjoutRev;
 
+    TextView totalRevenus;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,7 @@ public class RevenuListActivity
 
         ls = findViewById(R.id.lstRevenu);
         btnAjoutRev = findViewById(R.id.btnAjoutRev);
+        totalRevenus = findViewById(R.id.totalRevenus);
 
         ls.setLayoutManager(
                 new LinearLayoutManager(this)
@@ -49,6 +52,8 @@ public class RevenuListActivity
 
             liste =
                     db.revenuDao().getAll();
+            double total = db.revenuDao().getTotalRevenus();
+
 
             runOnUiThread(() -> {
 
@@ -56,6 +61,10 @@ public class RevenuListActivity
                         new RevenuAdapter(liste);
 
                 ls.setAdapter(adapter);
+
+                totalRevenus.setText(
+                        "Total revenus : " + total + " FCFA"
+                );
 
             });
 

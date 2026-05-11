@@ -19,4 +19,7 @@ public interface RevenuDAO {
 
     @Query("SELECT * FROM revenus ORDER BY date DESC")
     List<Revenu> getAll();
+
+    @Query("SELECT IFNULL(SUM(montant),0) FROM revenus")
+    double getTotalRevenus();
 }
